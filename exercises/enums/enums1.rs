@@ -1,16 +1,18 @@
 // enums1.rs
 // Make me compile! Execute `rustlings hint enums1` for hints!
 
-// I AM NOT DONE
-
 #[derive(Debug)]
-enum Message {
+enum Message<'a> {
     // TODO: define a few types of messages as used below
+    Quit(&'a str),
+    Echo(&'a str),
+    Move(i32,i32),
+    ChangeColor(&'a str),
 }
 
 fn main() {
-    println!("{:?}", Message::Quit);
-    println!("{:?}", Message::Echo);
-    println!("{:?}", Message::Move);
-    println!("{:?}", Message::ChangeColor);
+    println!("{:?}", Message::Quit("Quiting"));
+    println!("{:?}", Message::Echo("Echo"));
+    println!("{:?}", Message::Move(5,6));
+    println!("{:?}", Message::ChangeColor("green"));
 }

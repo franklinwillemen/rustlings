@@ -5,8 +5,21 @@
 
 // Write a macro that passes the test! No hints this time, you can do it!
 
-// I AM NOT DONE
+#[macro_export]
+macro_rules! my_macro {
+    () => {
+        println!("Check out my macro!");
+    };
+    ($val:expr) => {
+        {
+            let mut h = "Hello ".to_string();
+            h.push_str($val);
+            h
+        }
+    }
+}
 
+#[macro_use]
 #[cfg(test)]
 mod tests {
     use super::*;
